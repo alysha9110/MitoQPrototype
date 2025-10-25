@@ -1,0 +1,785 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>MitoQ and Anti-Aging: A Detailed Literature Review for Healthcare Professionals</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Crimson+Text:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/mermaid@10.6.1/dist/mermaid.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vanta@0.5.24/dist/vanta.net.min.js"></script>
+  <style>
+    :root{
+      --primary:#2c5530;
+      --secondary:#6b7280;
+      --accent:#10b981;
+      --primary-rgb:44,85,48;
+      --secondary-rgb:107,114,128;
+      --accent-rgb:16,185,129;
+    }
+    html{scroll-behavior:smooth;}
+    body{font-family:'Inter',sans-serif;}
+    h1,h2,h3,h4,h5{font-family:'Crimson Text',serif;}
+    .hero{background-image:url('https://pub.mdpi-res.com/antioxidants/antioxidants-12-00453/article_deploy/html/images/antioxidants-12-00453-ag.png?1676038292');background-size:cover;background-position:center;}
+    .hero-overlay{background:linear-gradient(135deg,rgba(44,85,48,0.95),rgba(16,185,129,0.85),rgba(107,114,128,0.75));}
+    .gradient-divider{height:1px;background:linear-gradient(to right,transparent,var(--accent),transparent);margin:4rem 0;}
+    .card{transition:all .3s ease;border:1px solid rgba(107,114,128,0.12);}
+    .card:hover{transform:translateY(-4px);box-shadow:0 10px 25px rgba(0,0,0,0.1);border-color:var(--accent);}
+    .glass{background:rgba(255,255,255,0.12);backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,0.22);}
+    .citation{background:rgba(16,185,129,0.1);color:var(--accent);padding:.25rem .5rem;border-radius:.375rem;font-size:.875rem;transition:all .2s;display:inline-block;text-decoration:none;}
+    .citation:hover{background:rgba(16,185,129,0.2);transform:translateY(-1px);}
+    blockquote::before{content:'"';font-size:4em;opacity:.25;position:absolute;left:-.5rem;top:-.5rem;}
+    #toc{scrollbar-width:thin;}
+    #toc ul{list-style:none;padding-left:1rem;}
+    #toc a.active{color:var(--accent);font-weight:600;}
+    .mermaid-container{position:relative;background:white;padding:1rem;border-radius:.5rem;box-shadow:0 4px 6px rgba(0,0,0,0.05);overflow:auto;margin-left:auto;margin-right:auto;max-width:80%;}
+    .mermaid-controls{position:absolute;top:1rem;right:1rem;display:flex;gap:.5rem;z-index:5;}
+    .mermaid-controls button{background:var(--accent);color:#fff;padding:.5rem;border-radius:.25rem;}
+    .bg-grad-primary-accent{background:linear-gradient(to bottom right,rgba(var(--primary-rgb),0.05),rgba(var(--accent-rgb),0.05));}
+    .bg-grad-accent-primary{background:linear-gradient(to bottom right,rgba(var(--accent-rgb),0.05),rgba(var(--primary-rgb),0.05));}
+    .bg-grad-primary-secondary{background:linear-gradient(to bottom right,rgba(var(--primary-rgb),0.05),rgba(var(--secondary-rgb),0.05));}
+    .text-primary{color:var(--primary);}
+    .text-secondary{color:var(--secondary);}
+    .text-accent{color:var(--accent);}
+    .border-accent{border-color:var(--accent);}
+    .bg-accent{background:var(--accent);}
+    .mermaid{position:relative;display:inline-block;transform-origin:top left;}
+    /* TOC show/hide helpers */
+    .show-on-mobile{transform:translateX(0);}
+    .hide-on-mobile{transform:translateX(-100%);}
+    @media (min-width:768px){
+      .show-on-desktop{transform:translateX(0)!important;}
+    }
+  </style>
+</head>
+<body class="bg-gray-50 text-gray-700">
+  <!-- Mobile Toggle -->
+  <button id="toggle-toc" class="md:hidden fixed left-4 top-4 z-50 p-2 bg-white rounded-lg shadow-md text-gray-700">
+    <i class="fas fa-bars text-lg"></i>
+  </button>
+
+  <!-- Sidebar TOC -->
+  <nav id="toc" role="navigation" aria-label="Table of contents"
+       class="fixed left-0 top-0 h-full w-64 bg-white shadow-lg overflow-y-auto z-50 transition-transform duration-300 ease-in-out hide-on-mobile show-on-desktop">
+    <div class="p-4 border-b">
+      <h2 class="text-xl font-serif font-bold text-gray-900">Contents</h2>
+    </div>
+    <ul class="p-4 space-y-2">
+      <li><a href="#hero" class="block py-1 text-gray-600 hover:text-accent transition">Overview</a></li>
+      <li>
+        <a href="#introduction" class="block py-1 font-semibold text-gray-800 hover:text-accent transition">Introduction</a>
+        <ul class="mt-1 space-y-1">
+          <li><a href="#query-summary" class="block py-0.5 text-sm text-gray-600 pl-4 hover:text-accent">Summary</a></li>
+          <li><a href="#mitoq-mechanism" class="block py-0.5 text-sm text-gray-600 pl-4 hover:text-accent">MitoQ Mechanism</a></li>
+        </ul>
+      </li>
+      <li>
+        <a href="#core-findings" class="block py-1 font-semibold text-gray-800 hover:text-accent transition">Core Findings</a>
+        <ul class="mt-1 space-y-1">
+          <li><a href="#key-points" class="block py-0.5 text-sm text-gray-600 pl-4 hover:text-accent">Key Points</a></li>
+        </ul>
+      </li>
+      <li>
+        <a href="#evidence-analysis" class="block py-1 font-semibold text-gray-800 hover:text-accent transition">Evidence Analysis</a>
+        <ul class="mt-1 space-y-1">
+          <li><a href="#human-evidence" class="block py-0.5 text-sm text-gray-600 pl-4 hover:text-accent">Human Evidence</a></li>
+          <li><a href="#animal-evidence" class="block py-0.5 text-sm text-gray-600 pl-4 hover:text-accent">Animal Evidence</a></li>
+          <li><a href="#in-vitro-evidence" class="block py-0.5 text-sm text-gray-600 pl-4 hover:text-accent"><em>In vitro</em> Evidence</a></li>
+        </ul>
+      </li>
+      <li>
+        <a href="#conclusion" class="block py-1 font-semibold text-gray-800 hover:text-accent transition">Conclusion</a>
+        <ul class="mt-1 space-y-1">
+          
+        </ul>
+      </li>
+    </ul>
+  </nav>
+
+  
+  <!-- Main Content -->
+	<main class="ml-0 md:ml-64 min-h-screen">
+	  <!-- Hero Section -->
+	  <section id="hero" class="relative min-h-[80vh] flex items-center overflow-hidden">
+		<!-- Background -->
+		<div id="hero-bg" class="absolute inset-0">
+		  <img src="your-original-image.jpg" 
+			   alt="MitoQ Background" 
+			   class="w-full h-full object-cover opacity-30"/>
+		  <div class="absolute inset-0 bg-gradient-to-b from-black/70 via-black/40 to-black/80"></div>
+		</div>
+
+		<!-- Content -->
+		<div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 py-12 sm:py-20">
+		  <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 items-start">
+			
+			<!-- Left Column -->
+			<div class="space-y-6 text-white">
+			  <p class="text-lg font-medium opacity-90">MitoQ Research Overview</p>
+			  <h1 class="font-serif text-4xl sm:text-5xl lg:text-6xl font-semibold italic leading-tight drop-shadow">
+				Mitochondria Targeted Antioxidants for Health Aging
+			  </h1>
+
+			  <div class="bg-white/10 backdrop-blur-sm rounded-lg p-5 border border-white/20">
+				<blockquote class="text-white/90 text-base sm:text-lg italic font-serif">
+				  “MitoQ neutralises mitochondrial oxidative stress at its source, promoting stronger vascular function, resilient mitochondria, and healthier aging markers”
+				</blockquote>
+			  </div>
+			</div>
+
+			<!-- Right Column -->
+			<div class="space-y-6">
+			  <!-- Key Highlights -->
+			  <div class="bg-white/95 backdrop-blur-sm rounded-xl p-6 shadow-xl">
+				<h3 class="font-serif text-xl font-semibold text-gray-900 mb-4">Key Highlights</h3>
+				<ul class="space-y-3 text-sm text-gray-800">
+				  <li class="flex items-center space-x-3">
+					<i class="fas fa-microscope text-accent"></i>
+					<span>Targets mitochondria up to <strong>1,000x</strong> more effectively</span>
+				  </li>
+				  <li class="flex items-center space-x-3">
+					<i class="fas fa-chart-line text-accent"></i>
+					<span>Evidence across <strong>RCTs, animal, and <em>in vitro</em> studies</strong></span>
+				  </li>
+				  <li class="flex items-center space-x-3">
+					<i class="fas fa-users text-accent"></i>
+					<span>Benefits observed in <strong>elderly and sarcopenia models</strong></span>
+				  </li>
+				  <li class="flex items-center space-x-3">
+					<i class="fas fa-flask text-accent"></i>
+					<span>Superior to general antioxidants</span>
+				  </li>
+				</ul>
+			  </div>
+
+			  <!-- Stats -->
+			  <div class="grid grid-cols-2 gap-4">
+				<div class="bg-white/95 backdrop-blur-sm rounded-lg p-4 text-center shadow">
+				  <div class="text-2xl font-bold text-primary">5</div>
+				  <div class="text-sm text-gray-600">Human Clinical Trials</div>
+				</div>
+				<div class="bg-white/95 backdrop-blur-sm rounded-lg p-4 text-center shadow">
+				  <div class="text-2xl font-bold text-primary">26+</div>
+				  <div class="text-sm text-gray-600">Animal Studies</div>
+				</div>
+				<div class="bg-white/95 backdrop-blur-sm rounded-lg p-4 text-center shadow col-span-2">
+				  <div class="text-2xl font-bold text-primary">10+</div>
+				  <div class="text-sm text-gray-600"><em>In vitro</em> Studies</div>
+				</div>
+			  </div>
+			</div>
+
+		  </div>
+		</div>
+	  </section>
+
+
+    <!-- Introduction -->
+    <section id="introduction" class="scroll-mt-20 py-16 bg-white">
+      <div class="max-w-7xl mx-auto px-4">
+        <h2 id="query-summary" class="text-4xl font-serif font-bold italic text-gray-900 mb-8">Introduction</h2>
+        <div class="prose prose-lg max-w-none text-gray-700 space-y-6">
+          <p class="text-gray-700 leading-relaxed mb-6">
+          MitoQ (mitoquinone mesylate) is a mitochondria‑targeted antioxidant engineered to accumulate where reactive oxygen species (ROS) are primarily produced. Unlike general antioxidants (e.g., vitamin C or plant phenolics) that circulate broadly with limited mitochondrial penetration, MitoQ leverages a lipophilic cation to concentrate inside mitochondria, addressing oxidative damage at its source.
+        </p>
+		
+		<!-- Comparative Advantages -->
+<div class="mt-8">
+  <h4 class="font-serif text-xl font-semibold text-gray-800 mb-4">How MitoQ Differs From General Antioxidants</h4>
+
+  <div class="grid sm:grid-cols-2 gap-6">
+    <!-- Vs. Vitamin C -->
+    <div class="bg-white rounded-lg p-5 shadow-sm ring-1 ring-gray-200/60">
+      <div class="flex items-center mb-3">
+        <i class="fas fa-capsules text-accent mr-2"></i>
+        <h5 class="font-semibold text-primary">Vs. Vitamin C</h5>
+      </div>
+      <p class="text-sm text-gray-700 leading-relaxed mb-3">
+        Vitamin C shows limited mitochondrial reach unless specially modified and often has variable bioavailability. MitoQ accumulates inside mitochondria via a TPP+ cation, providing hundreds‑fold higher local potency.
+      </p>
+      <div class="text-xs text-gray-600"><strong>Edge:</strong> Direct ROS targeting at the source</div>
+    </div>
+
+    <!-- Vs. Anthocyanins -->
+    <div class="bg-white rounded-lg p-5 shadow-sm ring-1 ring-gray-200/60">
+      <div class="flex items-center mb-3">
+        <i class="fas fa-leaf text-accent mr-2"></i>
+        <h5 class="font-semibold text-primary">Vs. Anthocyanins</h5>
+      </div>
+      <p class="text-sm text-gray-700 leading-relaxed mb-3">
+        Plant phenolics deliver broad, systemic effects but have limited mitochondrial penetration. MitoQ provides mitochondria‑specific protection with superior intra‑organelle concentration.
+      </p>
+      <div class="text-xs text-gray-600"><strong>Edge:</strong> Greater mitochondria specificity; higher effective concentration</div>
+    </div>
+  </div>
+
+  <!-- Overall superiority -->
+  <div class="mt-6 bg-accent/10 rounded-lg p-5">
+    <div class="flex items-center mb-2">
+      <i class="fas fa-check-circle text-accent mr-2"></i>
+      <h5 class="font-semibold text-primary">Overall Superiority</h5>
+    </div>
+    <p class="text-sm text-gray-700 leading-relaxed">
+      Targeted delivery reduces mitochondrial oxidative burden, helps preserve membrane potential (ΔΨm), and may extend mitochondrial functional lifespan—lowering cumulative damage during energy production.
+    </p>
+  </div>
+</div>
+	
+        <!-- Mechanism subsection -->
+        <h3 id="mitoq-mechanism" class="text-3xl font-serif font-bold italic text-gray-900 mb-6 mt-12">Overview of MitoQ and Its Mechanism</h3>
+        <div class="grid lg:grid-cols-2 gap-12">
+          <div>
+            <h4 class="font-serif text-2xl font-semibold text-gray-800 mb-6">Understanding MitoQ's Core Science</h4>
+            <div class="space-y-6">
+              <div class="bg-white rounded-lg p-6 shadow-sm card">
+                <h5 class="font-semibold text-primary mb-3">
+                  <i class="fas fa-atom text-accent mr-2"></i>
+                  Mitoquinol Mesylate Mechanism
+                </h5>
+                <p class="text-gray-700 text-sm leading-relaxed">
+                  The core innovation lies in Mitoquinol Mesylate, a mitochondria-targeted antioxidant derived from Coenzyme Q10. Unlike standard CoQ10, Mitoquinol Mesylate is engineered for superior mitochondrial accumulation through the covalent attachment of a
+                  <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC3961561/" class="citation">triphenylphosphonium (TPP+) group</a>.
+                </p>
+              </div>
+              <div class="bg-white rounded-lg p-6 shadow-sm card">
+                <h5 class="font-semibold text-primary mb-3">
+                  <i class="fas fa-bolt text-accent mr-2"></i>
+                  TPP+ Ion Targeting
+                </h5>
+                <p class="text-gray-700 text-sm leading-relaxed">
+                  The TPP+ ion exploits the mitochondrial membrane potential (ΔΨm) of
+                  <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC3961561/" class="citation">-150 to -180 mV</a>, achieving concentrations 100-500 times higher inside mitochondria than in the cytoplasm.
+                </p>
+              </div>
+              <div class="bg-white rounded-lg p-6 shadow-sm card">
+                <h5 class="font-semibold text-primary mb-3">
+                  <i class="fas fa-shield-alt text-accent mr-2"></i>
+                  Oxidative Stress Reduction
+                </h5>
+                <p class="text-gray-700 text-sm leading-relaxed">
+                  By delivering antioxidants directly to the primary source of ROS production, MitoQ interrupts the cycle of mitochondrial damage that contributes to
+                  <a href="https://global.mitoq.com/pages/health-professionals" class="citation">over 200 health conditions</a>.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="text-center">
+            <h4 class="font-serif text-xl font-semibold text-gray-800 mb-6">MitoQ Targeted Delivery Mechanism</h4>
+            <div class="mermaid-container">
+              <div class="mermaid-controls">
+                <button class="mermaid-control-btn zoom-in" title="Zoom In"><i class="fas fa-search-plus"></i></button>
+                <button class="mermaid-control-btn zoom-out" title="Zoom Out"><i class="fas fa-search-minus"></i></button>
+                <button class="mermaid-control-btn reset-zoom" title="Reset"><i class="fas fa-expand-arrows-alt"></i></button>
+                <button class="mermaid-control-btn fullscreen" title="Fullscreen"><i class="fas fa-expand"></i></button>
+              </div>
+              <div class="mermaid" id="mitoq-mechanism-diagram">
+                graph TD
+                  A["CoQ10 Molecule"] --> B["Add TPP+ Group"]
+                  B --> C["MitoQ Molecule"]
+                  C --> D["Cellular Uptake"]
+                  D --> E["Mitochondrial Targeting"]
+                  E --> F["100-500x Accumulation"]
+                  F --> G["ROS Neutralization"]
+                  G --> H["Cellular Protection"]
+
+                  style A fill:#f8fafc,stroke:#2c5530,stroke-width:2px,color:#1f2937
+                  style B fill:#e0f2fe,stroke:#2c5530,stroke-width:2px,color:#1f2937
+                  style C fill:#ecfdf5,stroke:#2c5530,stroke-width:2px,color:#1f2937
+                  style D fill:#f8fafc,stroke:#2c5530,stroke-width:2px,color:#1f2937
+                  style E fill:#e0f2fe,stroke:#2c5530,stroke-width:2px,color:#1f2937
+                  style F fill:#ecfdf5,stroke:#2c5530,stroke-width:2px,color:#1f2937
+                  style G fill:#f59e0b,stroke:#2c5530,stroke-width:2px,color:#1f2937
+                  style H fill:#10b981,stroke:#2c5530,stroke-width:2px,color:#ffffff
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="gradient-divider"></div>
+      </div>
+    </section>
+
+    <!-- Core Findings -->
+    <section id="core-findings" class="scroll-mt-20 py-16 bg-gray-50">
+      <div class="max-w-7xl mx-auto px-4">
+        <h2 id="key-points" class="text-4xl font-serif font-bold italic text-gray-900 mb-8">MitoQ and Aging</h2>
+        <div class="bg-gray-50 border-l-4 border-accent p-6 my-8 rounded-md">
+          <p class="italic text-gray-800">
+            Aging is closely tied to mitochondrial dysfunction. By neutralizing ROS within mitochondria, MitoQ can help preserve membrane potential, support ATP production, and reduce downstream oxidative damage.
+          </p>
+        </div>
+		
+        <p class="text-gray-700 leading-relaxed mb-6">
+          In this review, we follow the evidence pyramid—prioritising human randomized controlled trials (RCTs), then animal models, and finally <em>in vitro</em>  findings—synthesising systematic and scoping reviews up to October 2025. Practically, this may translate into better vascular health, improved mitochondrial energy output, and lower inflammation—features linked to frailty, cardiovascular risk, and cognitive aging.
+        </p>
+
+        <!-- One concise list to avoid “point soup” -->
+        <ul class="list-disc pl-6 text-gray-700 mb-6">
+          <li><strong>Doses in human studies:</strong> typically 20–80 mg/day over 3–12 weeks</li>
+          <li><strong>Key biomarkers:</strong> reduced mitochondrial ROS, preserved ΔΨm, lower 3‑NT and protein carbonyls, upregulated SOD/GPx</li>
+        </ul>
+
+		<!-- Evidence Pyramid Diagram -->
+        <div class="mb-12 text-center">
+          <h3 class="text-2xl font-serif italic font-bold text-gray-800 mb-4">Evidence Pyramid</h3>
+          <div class="mermaid-container mx-auto max-w-[600px]">
+            <div class="mermaid-controls">
+              <button class="mermaid-control-btn zoom-in" title="Zoom In"><i class="fas fa-search-plus"></i></button>
+              <button class="mermaid-control-btn zoom-out" title="Zoom Out"><i class="fas fa-search-minus"></i></button>
+              <button class="mermaid-control-btn reset-zoom" title="Reset"><i class="fas fa-expand-arrows-alt"></i></button>
+              <button class="mermaid-control-btn fullscreen" title="Fullscreen"><i class="fas fa-expand"></i></button>
+            </div>
+            <div class="mermaid" id="evidence-pyramid-diagram">
+              graph TD
+                A[Meta-Analyses & Systematic Reviews<br/>Level 1 - Highest] --> B[Human RCTs<br/>Level 2]
+                B --> C[Animal Studies<br/>Level 3]
+                C --> D[In vitro Studies<br/>Level 4 - Lowest]
+                style A fill:#10b981,stroke:#333,stroke-width:2px
+                style B fill:#2c5530,stroke:#333,stroke-width:2px,color:#fff
+                style C fill:#6b7280,stroke:#333,stroke-width:2px,color:#fff
+                style D fill:#9ca3af,stroke:#333,stroke-width:2px
+            </div>
+          </div>
+        </div>
+      </div>
+	  <section id="key-points" class="scroll-mt-20 py-16 bg-gray-50">
+	  <h4 class="font-serif text-xl font-semibold text-gray-800 mb-4">Key Points</h4>
+        <div class="grid md:grid-cols-2 gap-6">
+          <div class="card bg-grad-primary-secondary rounded-xl p-6">
+            <i class="fas fa-lightbulb text-accent text-2xl mb-4"></i>
+            <ul class="space-y-2 text-gray-700">
+              <li>• <strong>Human trials (5 studies):</strong> demonstrate improvements in vascular endpoints like flow-mediated dilation (FMD; +42%, p&lt;0.05) and reduced oxidized LDL (-13%, p&lt;0.05) in older adults, with doses of 20 mg/day for 6 weeks. <a href="https://www.ahajournals.org/doi/10.1161/hypertensionaha.117.10787" class="citation">[1]</a></li>
+              <li>• <strong>Animal studies (26+)</strong> show consistent reductions in nitrotyrosine (SMD -0.67, p=0.04) and increased membrane potential (MD 11.44, p=0.03), reversing age-related aortic stiffness in mice. <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC6079400/" class="citation">[2]</a></li>
+              <li>• <strong><em>In vitro</em> evidence (10+ studies)</strong> confirms ROS scavenging, with enhanced oocyte maturation rates (+20–30%) and reduced apoptosis in stress models. <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC7891816/" class="citation">[3]</a></li>
+              <li>• <strong>Meta-analysis</strong> indicates significant benefits on oxidative biomarkers, but human data lacks long-term outcomes on frailty or lifespan proxies. <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC6079400/" class="citation">[4]</a></li>
+            </ul>
+          </div>
+          <div class="card bg-grad-accent-primary rounded-xl p-6 flex items-center">
+            <canvas id="evidenceChart" class="w-full h-full"></canvas>
+          </div>
+        </div>
+        <div class="gradient-divider"></div>
+      </div>
+    </section>
+
+    <!-- Evidence Analysis -->
+    <section id="evidence-analysis" class="scroll-mt-20 py-16 bg-white">
+      <div class="max-w-7xl mx-auto px-4">
+        <h2 class="text-4xl font-serif font-bold italic text-gray-900 mb-8">Evidence Analysis</h2>
+
+
+        <!-- Human Evidence -->
+        <div id="human-evidence" class="mb-12">
+          <h3 class="text-2xl font-serif italic font-bold text-gray-900 mb-6">
+            Human Clinical Trials <span class="text-accent">(Highest Evidence Level)</span>
+          </h3>
+          <div class="prose prose-lg max-w-none text-gray-700 space-y-5 leading-relaxed">
+            <p>Evidence from human studies is still limited but steadily expanding. As of 2025, <strong>5 clinical trials</strong> have been identified, primarily investigating vascular and cardiometabolic outcomes in older or at-risk populations.</p>
+            <p>Typical study designs use <strong>20–80 mg/day</strong> of MitoQ for <strong>3–12 weeks</strong>. Earlier reviews (e.g., 2018) included only one randomized controlled trial, but more recent studies have broadened the evidence base considerably.</p>
+            
+          </div>
+
+          <div class="overflow-x-auto mt-6">
+            <table class="min-w-full bg-white border border-gray-200 rounded-lg shadow-md">
+              <thead class="bg-gray-50">
+                <tr>
+                  <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Study</th>
+                  <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Design</th>
+                  <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Participants</th>
+                  <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Intervention</th>
+                  <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Key Findings</th>
+                  <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Limitations</th>
+                </tr>
+              </thead>
+              <tbody class="divide-y divide-gray-200">
+                <tr>
+                  <td class="px-6 py-4">Rossman et al. (2018)<a href="https://www.ahajournals.org/doi/10.1161/hypertensionaha.117.10787" class="citation ml-1">[5]</a></td>
+                  <td class="px-6 py-4">Double-blind, placebo-controlled, crossover RCT</td>
+                  <td class="px-6 py-4">20 healthy older adults (60-79 years, 9M/11F) with endothelial impairment</td>
+                  <td class="px-6 py-4">20 mg/day oral MitoQ vs. placebo for 6 weeks</td>
+                  <td class="px-6 py-4">Improved brachial FMD by 42% (p&lt;0.05); reduced aortic PWV in elevated baseline subgroup (-1.2 m/s, p&lt;0.05); lowered plasma oxLDL (-13%, p&lt;0.05); no BP or inflammation changes</td>
+                  <td class="px-6 py-4">Small n; short duration; healthy cohort limits to frail elderly</td>
+                </tr>
+                <tr>
+                  <td class="px-6 py-4">Masoumi-Ardakani et al. (2022)<a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC9617024/" class="citation ml-1">[6]</a></td>
+                  <td class="px-6 py-4">Randomized, double-blind RCT</td>
+                  <td class="px-6 py-4">Hypertensive adults (middle-aged/older implied)</td>
+                  <td class="px-6 py-4">20 mg/day MitoQ + endurance training vs. alone or control for 6 weeks</td>
+                  <td class="px-6 py-4">Combination: improved cardiac function (e.g., LVEF +5–10%, p&lt;0.01); reduced SBP/DBP (-10/-5 mmHg, p&lt;0.05); lowered ROS (-20%, p&lt;0.05), IL-6 (-15%, p&lt;0.05); modulated miR-21/222</td>
+                  <td class="px-6 py-4">Hypertension focus; exercise confound; n unspecified</td>
+                </tr>
+                <tr>
+                  <td class="px-6 py-4">Park et al. (2020)<a href="https://pubmed.ncbi.nlm.nih.gov/32706261/" class="citation ml-1">[7]</a></td>
+                  <td class="px-6 py-4">Acute RCT</td>
+                  <td class="px-6 py-4">Older PAD patients (Fontaine II; ~70 years)</td>
+                  <td class="px-6 py-4">Single 80 mg oral MitoQ vs. placebo</td>
+                  <td class="px-6 py-4">Enhanced brachial/popliteal FMD (+1–2%, p&lt;0.05); increased walking time/distance (+20–30%, p&lt;0.05); boosted SOD activity (+15%, p&lt;0.05)</td>
+                  <td class="px-6 py-4">Acute only; small n; PAD-specific</td>
+                </tr>
+                <tr>
+                  <td class="px-6 py-4">Kirkman et al. (2023)<a href="https://pubmed.ncbi.nlm.nih.gov/37560769/" class="citation ml-1">[8]</a></td>
+                  <td class="px-6 py-4">Pilot RCT</td>
+                  <td class="px-6 py-4">CKD stages 3–4 adults (older implied)</td>
+                  <td class="px-6 py-4">MitoQ (likely 20 mg/day) for unspecified duration</td>
+                  <td class="px-6 py-4">Improved macrovascular FMD (+1.5%, p&lt;0.05); better arterial hemodynamics (PWV -0.8 m/s, p&lt;0.05); enhanced exercise capacity (6MWT +50m, p&lt;0.05)</td>
+                  <td class="px-6 py-4">Pilot; small n; CKD focus</td>
+                </tr>
+                <tr>
+                  <td class="px-6 py-4">Broome et al. (2022)<a href="https://pubmed.ncbi.nlm.nih.gov/35201920/" class="citation ml-1">[9]</a></td>
+                  <td class="px-6 py-4">RCT</td>
+                  <td class="px-6 py-4">Untrained men (middle-aged implied)</td>
+                  <td class="px-6 py-4">MitoQ post-exercise</td>
+                  <td class="px-6 py-4">Reduced F2-isoprostanes (-10%, p&lt;0.05); no effect on muscle recovery or soreness</td>
+                  <td class="px-6 py-4">Exercise recovery focus; limited anti-aging</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <!-- Line break/spacing fix before next subsection -->
+          <p class="mt-4 mb-8 text-sm text-gray-500">
+            Ongoing:
+            <a href="https://clinicaltrials.gov/study/NCT04851288" class="citation">NCT04851288</a> (90 older adults, 20 mg/day for 3 months on vascular);
+            <a href="https://clinicaltrials.gov/study/NCT06027554" class="citation">NCT06027554</a> (frail elderly, mobility/cognition).
+          </p>
+        </div>
+
+        <!-- Animal Evidence (banded) -->
+        <div id="animal-evidence" class="mb-12 rounded-2xl bg-emerald-50/60 border border-emerald-100 p-6 md:p-8 shadow-sm">
+          <h3 class="text-2xl font-serif italic font-bold text-gray-800 mb-4">Animal Studies (Mid-Level Evidence)</h3>
+          <div class="prose prose-lg max-w-none text-gray-700 mb-6 space-y-4">
+            <p>A 2018 meta-analysis included 26 animal RCTs, primarily rodents in aging, sepsis, ischemia, high-fat diet, and neurodegenerative models.</p>
+            <p>Doses 0.1–340 mg/kg/day equivalents, durations &lt;24h to 28 weeks.</p>
+            <p>Mechanisms: MitoQ reduces mtROS, 3-NT, and PC; increases ΔΨm; upregulates Nrf2/SOD/GPx.</p>
+            <p>Consistent benefits in vascular stiffness reversal (full restoration in aged mice, p&lt;0.01) and neuroprotection.</p>
+          </div>
+          <div class="overflow-x-auto">
+            <table class="min-w-full bg-white border border-emerald-100 rounded-lg shadow">
+              <thead class="bg-emerald-50">
+                <tr>
+                  <th class="px-6 py-3 text-left text-xs font-medium text-emerald-800 uppercase">Model</th>
+                  <th class="px-6 py-3 text-left text-xs font-medium text-emerald-800 uppercase">Key Studies</th>
+                  <th class="px-6 py-3 text-left text-xs font-medium text-emerald-800 uppercase">Interventions</th>
+                  <th class="px-6 py-3 text-left text-xs font-medium text-emerald-800 uppercase">Outcomes</th>
+                  <th class="px-6 py-3 text-left text-xs font-medium text-emerald-800 uppercase">Implications for Aging</th>
+                </tr>
+              </thead>
+              <tbody class="divide-y divide-emerald-100">
+                <tr>
+                  <td class="px-6 py-4">Aged mice (vascular)</td>
+                  <td class="px-6 py-4">
+                    Gioscia-Ryan et al. (2014)
+                    <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC4080937/#sec25" class="citation ml-1">[10]</a>,
+                    (2017)
+                    <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC6008077/" class="citation ml-1">[11]</a>
+                  </td>
+                  <td class="px-6 py-4">100–500 μM in water, 4–6 weeks</td>
+                  <td class="px-6 py-4">Restored endothelial function; reduced mtROS (-30%, p&lt;0.05); lowered PWV (-1.5 m/s, p&lt;0.01)</td>
+                  <td class="px-6 py-4">Prevents age-related CVD via NO bioavailability</td>
+                </tr>
+                <tr>
+                  <td class="px-6 py-4">Neurodegenerative (AD, D-gal Brain Aging)</td>
+                  <td class="px-6 py-4">
+                    McManus et al. (2011)
+                    <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC3334845/" class="citation ml-1">[12]</a>,
+                    Jeong et al. (2021)
+                    <a href="https://www.mdpi.com/2076-3425/11/2/164" class="citation ml-1">[13]</a>
+                  </td>
+                  <td class="px-6 py-4">Oral/IP, up to 28 weeks</td>
+                  <td class="px-6 py-4">Improved memory (Morris water maze +20%, p&lt;0.05); reduced 3-NT (-40%, p&lt;0.01); enhanced ΔΨm (+15%, p&lt;0.05)</td>
+                  <td class="px-6 py-4">Neuroprotection for cognitive anti-aging</td>
+                </tr>
+                <tr>
+                  <td class="px-6 py-4">Stress-induced (high-fat, sepsis)</td>
+                  <td class="px-6 py-4">Meta-analysis studies <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC6079400/" class="citation ml-1">[4]</a></td>
+                  <td class="px-6 py-4">Varied doses, short–long term</td>
+                  <td class="px-6 py-4">Lowered MDA/TBARS (-20–50%, p&lt;0.05); increased GPx (+25%, p&lt;0.05)</td>
+                  <td class="px-6 py-4">Mimics accelerated aging, broad oxidative protection</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- In vitro Evidence -->
+        <div id="in-vitro-evidence">
+          <h3 class="text-2xl font-serif italic font-bold text-gray-800 mb-4"><em>In vitro</em> Studies (Lowest Evidence Level)</h3>
+          <div class="prose prose-lg max-w-none text-gray-700 mb-6 space-y-4">
+            <p><em>In vitro</em> studies (10+ identified) use cell lines under oxidative stress to model aging.</p>
+            <p>MitoQ reduces ROS, improves ΔΨm, and protects against apoptosis.</p>
+            <p>Concentrations 50 nM–1 μM; mechanisms: Shifts metabolism from glycolysis to OXPHOS, activates AMPK/mTOR for autophagy.</p>
+          </div>
+          <div class="overflow-x-auto">
+            <table class="min-w-full bg-white border border-gray-200 rounded-lg shadow-md">
+              <thead class="bg-gray-50">
+                <tr>
+                  <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Cell Type</th>
+                  <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Key Studies</th>
+                  <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Conditions</th>
+                  <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Outcomes</th>
+                </tr>
+              </thead>
+              <tbody class="divide-y divide-gray-200">
+                <tr>
+                  <td class="px-6 py-4">Oocytes/endothelial</td>
+                  <td class="px-6 py-4">Al-Zubaidi (2021) <a href="https://pubmed.ncbi.nlm.nih.gov/33367783/" class="citation ml-1">[14]</a>, Feng (2024) <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC11503749/" class="citation ml-1">[15]</a></td>
+                  <td class="px-6 py-4">Oxidative stress/aging simulation</td>
+                  <td class="px-6 py-4">Improved ΔΨm (+20%, p&lt;0.05); reduced ROS (-30%, p&lt;0.01); higher maturation rates (+25%, p&lt;0.05)</td>
+                </tr>
+                <tr>
+                  <td class="px-6 py-4">Hepatic</td>
+                  <td class="px-6 py-4">Fernandes et al. (2021) <a href="https://pubmed.ncbi.nlm.nih.gov/34827603/" class="citation ml-1">[16]</a></td>
+                  <td class="px-6 py-4">H2O2 exposure, steatosis</td>
+                  <td class="px-6 py-4">Lowered oxidative damage (-25%, p&lt;0.05); enhanced ATP (+15%, p&lt;0.05)</td>
+                </tr>
+                <tr>
+                  <td class="px-6 py-4">Pancreatic β-cells</td>
+                  <td class="px-6 py-4">Escribano-Lopez et al. (2019) <a href="https://pubmed.ncbi.nlm.nih.gov/30816667/" class="citation ml-1">[17]</a></td>
+                  <td class="px-6 py-4">Hyperglycemia</td>
+                  <td class="px-6 py-4">Reduced ER stress; increased insulin secretion (+30%, p&lt;0.01)</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="gradient-divider"></div>
+      </div>
+    </section>
+	
+	<!-- Conclusion -->
+<section id="conclusion" class="scroll-mt-20 py-16 bg-gray-50">
+  <div class="max-w-7xl mx-auto px-4">
+    <h2 class="text-4xl font-serif font-bold italic text-gray-900 mb-12 text-center">Conclusion</h2>
+    
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-10 text-gray-700 prose prose-lg max-w-none">
+      
+      <!-- Column 1 -->
+      <div>
+        <h3 class="text-2xl font-serif italic font-bold mb-4 text-gray-900">Current Evidence</h3>
+        <ul class="list-disc pl-6 space-y-2">
+          <li>Early human trials show vascular benefits: improved endothelial function and reduced arterial stiffness in older adults.</li>
+          <li>Preclinical studies provide stronger support for mitochondrial protection.</li>
+          <li>HCP takeaways: cardiovascular resilience, synergy with exercise, and a favorable safety profile (20–160 mg/day, no serious adverse events).</li>
+          <li>Limitations: small sample sizes, short durations, and limited generalizability to frail or diverse elderly groups.</li>
+        </ul>
+      </div>
+      
+      <!-- Column 2 -->
+      <div>
+        <h3 class="text-2xl font-serif italic font-bold mb-4 text-gray-900">Gaps & Future Directions</h3>
+        <ul class="list-disc pl-6 space-y-2">
+          <li>Long‑term RCTs are needed to assess frailty, cognition, and healthspan outcomes.</li>
+          <li>Evidence is especially lacking in underrepresented populations.</li>
+          <li>Ongoing studies: 
+            <a href="https://clinicaltrials.gov/study/NCT04851288" class="citation">NCT04851288</a> (90 older adults, 20 mg/day for 3 months, vascular outcomes).  
+            <a href="https://clinicaltrials.gov/study/NCT06027554" class="citation">Mito‑Frail Trial</a> (frail adults 65–80, vasodilation, mobility, cognition).
+          </li>
+          <li>Future research should prioritize combination therapies and larger, diverse cohorts.</li>
+        </ul>
+      </div>
+    </div>
+    
+    <div class="gradient-divider mt-12"></div>
+  </div>
+</section>
+
+
+
+  </main>
+
+  <!-- Footer -->
+<footer class="bg-gray-900 text-white py-8 mt-20 ml-64">
+  <div class="max-w-7xl mx-auto px-4">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+      
+      <!-- Left column: Project info -->
+      <div>
+        <h4 class="font-semibold text-lg mb-2">About This Project</h4>
+        <p class="text-sm text-gray-300 leading-relaxed">
+          This review of MitoQ and anti-aging was prepared using a LLM
+          to demonstrate rapid research synthesis and web presentation.  
+          Sources and interpretations have not been fully vetted, and the content should be 
+          considered a prototype rather than a definitive scientific review.
+        </p>
+      </div>
+      
+      <!-- Right column: Skills showcase -->
+      <div>
+        <h4 class="font-semibold text-lg mb-2">What This Demonstrates</h4>
+        <ul class="text-sm text-gray-300 space-y-1 list-disc pl-5">
+          <li>Rapid prototyping, concept to live site in hours</li>
+          <li>AI-assisted workflow with human editorial control</li>
+          <li>User-focused design for clarity and accessibility</li>
+          <li>Research synthesis and structured presentation</li>
+        </ul>
+      </div>
+    </div>
+    
+    <!-- Bottom strip -->
+    <div class="border-t border-gray-700 mt-8 pt-4 text-xs text-gray-400">
+      <p>&copy; 2025 Prototype Review · Built by Alysha Chua for demonstration purposes only</p>
+    </div>
+  </div>
+</footer>
+
+
+  <script>
+    // Vanta Background
+    VANTA.NET({
+      el:"#hero-bg",
+      mouseControls:true,
+      touchControls:true,
+      gyroControls:false,
+      minHeight:200.00,
+      minWidth:200.00,
+      scale:1.00,
+      scaleMobile:1.00,
+      color:0x10b981,
+      backgroundColor:0x0,
+      points:12.00,
+      maxDistance:20.00,
+      spacing:14.00
+    });
+
+    // Mermaid
+    mermaid.initialize({ startOnLoad:true, theme:'forest' });
+
+    // Mermaid Interactivity (zoom/pan/fullscreen)
+    document.querySelectorAll('.mermaid-container').forEach(container=>{
+      const mermaidDiagram = container.querySelector('.mermaid');
+      let scale = 1;
+      const zoomIn = container.querySelector('.zoom-in');
+      const zoomOut = container.querySelector('.zoom-out');
+      const zoomReset = container.querySelector('.reset-zoom');
+      const fullscreen = container.querySelector('.fullscreen');
+
+      zoomIn.addEventListener('click',()=>{
+        scale += 0.1;
+        mermaidDiagram.style.transform = `scale(${scale})`;
+      });
+      zoomOut.addEventListener('click',()=>{
+        scale = Math.max(0.5, scale - 0.1);
+        mermaidDiagram.style.transform = `scale(${scale})`;
+      });
+      zoomReset.addEventListener('click',()=>{
+        scale = 1;
+        mermaidDiagram.style.transform = `scale(1)`;
+        mermaidDiagram.style.left = '0px';
+        mermaidDiagram.style.top = '0px';
+      });
+      fullscreen.addEventListener('click',()=>{
+        if(!document.fullscreenElement){container.requestFullscreen();}
+        else{document.exitFullscreen();}
+      });
+
+      // Pan (drag)
+      let isDragging=false, startX=0, startY=0;
+      mermaidDiagram.addEventListener('mousedown',e=>{
+        isDragging=true;
+        startX = e.clientX - mermaidDiagram.offsetLeft;
+        startY = e.clientY - mermaidDiagram.offsetTop;
+      });
+      document.addEventListener('mousemove',e=>{
+        if(isDragging){
+          mermaidDiagram.style.left = `${e.clientX - startX}px`;
+          mermaidDiagram.style.top = `${e.clientY - startY}px`;
+        }
+      });
+      document.addEventListener('mouseup',()=>{isDragging=false;});
+
+      // Touch support
+      mermaidDiagram.addEventListener('touchstart',e=>{
+        if(e.touches.length===1){
+          isDragging=true;
+          startX = e.touches[0].clientX - mermaidDiagram.offsetLeft;
+          startY = e.touches[0].clientY - mermaidDiagram.offsetTop;
+        }
+      },{passive:true});
+      mermaidDiagram.addEventListener('touchmove',e=>{
+        if(isDragging && e.touches.length===1){
+          mermaidDiagram.style.left = `${e.touches[0].clientX - startX}px`;
+          mermaidDiagram.style.top = `${e.touches[0].clientY - startY}px`;
+        }else if(e.touches.length===2){
+          const dist = Math.hypot(
+            e.touches[0].pageX - e.touches[1].pageX,
+            e.touches[0].pageY - e.touches[1].pageY
+          );
+          if(!mermaidDiagram.lastDist) mermaidDiagram.lastDist = dist;
+          scale *= dist / mermaidDiagram.lastDist;
+          mermaidDiagram.lastDist = dist;
+          scale = Math.min(Math.max(scale,0.5),3);
+          mermaidDiagram.style.transform = `scale(${scale})`;
+        }
+      },{passive:true});
+      mermaidDiagram.addEventListener('touchend',()=>{
+        isDragging=false;
+        delete mermaidDiagram.lastDist;
+      });
+    });
+
+    // Chart.js
+    const ctx = document.getElementById('evidenceChart').getContext('2d');
+    new Chart(ctx,{
+      type:'bar',
+      data:{
+        labels:['Human Trials','Animal Studies','In vitro'],
+        datasets:[{
+          label:'Number of Studies',
+          data:[5,26,10],
+          backgroundColor:['#10b981','#2c5530','#6b7280']
+        }]
+      },
+      options:{
+        responsive:true,
+        scales:{ y:{ beginAtZero:true } },
+        plugins:{ legend:{ display:true } }
+      }
+    });
+
+    // TOC Active Highlight
+    const sections = document.querySelectorAll('section[id]');
+    const links = document.querySelectorAll('#toc a[href^="#"]');
+    window.addEventListener('scroll',()=>{
+      let current = '';
+      sections.forEach(section=>{
+        if(window.scrollY >= section.offsetTop - 120){
+          current = section.getAttribute('id');
+        }
+      });
+      links.forEach(link=>{
+        link.classList.remove('active');
+        if(link.getAttribute('href') === `#${current}`){
+          link.classList.add('active');
+        }
+      });
+    });
+
+    // Mobile TOC Toggle
+    const toc = document.getElementById('toc');
+    const toggleBtn = document.getElementById('toggle-toc');
+    const showTOC = ()=>{ toc.classList.remove('hide-on-mobile'); toc.classList.add('show-on-mobile'); };
+    const hideTOC = ()=>{ toc.classList.remove('show-on-mobile'); toc.classList.add('hide-on-mobile'); };
+
+    toggleBtn.addEventListener('click',()=>{
+      if(toc.classList.contains('hide-on-mobile')) showTOC(); else hideTOC();
+    });
+    document.addEventListener('click',e=>{
+      if(window.innerWidth<768 && !e.target.closest('#toc') && !e.target.closest('#toggle-toc')){
+        hideTOC();
+      }
+    });
+    window.addEventListener('resize',()=>{
+      if(window.innerWidth>=768){ toc.classList.remove('hide-on-mobile'); /* show-on-desktop kicks in via CSS */ }
+      else { hideTOC(); }
+    });
+    // Close TOC when clicking a TOC link on mobile
+    document.querySelectorAll('#toc a').forEach(a=>{
+      a.addEventListener('click',()=>{ if(window.innerWidth<768){ hideTOC(); } });
+    });
+  </script>
+</body>
+</html>
